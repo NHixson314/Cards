@@ -2,7 +2,7 @@
  * @Author Nora Hixson
  *  
  */
-public class Card {
+public class Card implements Comparable<Card>{
 	
 // Fields
 	private String Suit;
@@ -201,17 +201,18 @@ public class Card {
 	}
 	
 	public int compareTo(Card other){
-		if(this.Rank > other.getRank())
-			return 1; 
-		if(this.Rank < other.getRank())
-			return -1;
-		if(this.getSuitInt() > other.getSuitInt())
-			return 1;
-		if(this.getSuitInt() < other.getSuitInt())
-			return -1;
-		
-		return 0;
-	}
+
+			if(this.Rank > other.getRank())
+				return 1; 
+			if(this.Rank < other.getRank())
+				return -1;
+			if(this.getSuitInt() > other.getSuitInt())
+				return 1;
+			if(this.getSuitInt() < other.getSuitInt())
+				return -1;
+			
+			return 0;
+		}
 	
 	
 	public static void main(String []args){
