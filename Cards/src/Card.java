@@ -17,7 +17,7 @@ public class Card implements Comparable<Card>{
 	
 	Card(int suit, int rank){
 		Rank = rank;
-		//Suit = suitIntString(suit);
+		Suit = suitIntStr(suit);
 	}
 	
 	Card(String suit, String rank){
@@ -31,8 +31,8 @@ public class Card implements Comparable<Card>{
 	}
 	
 	Card(int suit, String rank){
-		// Suit = suitIntStrins(suit);
-		// Rank = rankStringInt(rank);
+		Suit = suitIntStr(suit);
+		Rank = rankStrInt(rank);
 	}
 	
 	Card(Card other){
