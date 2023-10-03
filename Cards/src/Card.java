@@ -1,6 +1,6 @@
 /**
  * @Author Nora Hixson
- *  
+ *  This class creates a card
  */
 public class Card implements Comparable<Card>{
 	
@@ -10,31 +10,61 @@ public class Card implements Comparable<Card>{
 	
 // Constructors
 	
+	/**
+	 * No parameter constructor makes Ace of Spades
+	 */
+	
 	Card(){
 		Rank = 1;
-		Suit = "Ace";
+		Suit = "Spades";
 	}
+	
+	/**
+	 * Card constructor
+	 * @param suit int
+	 * @param rank int
+	 */
 	
 	Card(int suit, int rank){
 		Rank = rank;
 		Suit = suitIntStr(suit);
 	}
 	
+	/**
+	 * Card Constructor
+	 * @param suit String
+	 * @param rank String
+	 */
+	
 	Card(String suit, String rank){
 		Suit = suit;
-		//Rank = rankStringInt(rank);
+		Rank = rankStrInt(rank);
 	}
 	
+	/**
+	 * Card Constructor
+	 * @param suit String
+	 * @param rank int
+	 */
 	Card(String suit,int rank){
 		Suit = suit;
 		Rank = rank;
 	}
 	
+	/**
+	 * Card Constructor
+	 * @param suit int
+	 * @param rank String
+	 */
 	Card(int suit, String rank){
 		Suit = suitIntStr(suit);
 		Rank = rankStrInt(rank);
 	}
 	
+	/**
+	 * Card Constructor
+	 * @param other Card
+	 */
 	Card(Card other){
 		Suit = other.getSuit();
 		Rank = other.getRank();
@@ -42,25 +72,54 @@ public class Card implements Comparable<Card>{
 	
 	//Getters
 	
+	/**
+	 * getSuit
+	 * @return String
+	 */
+	
 	public String getSuit(){
 		return Suit; 
 	}
+	
+	/**
+	 * getRank
+	 * @return int
+	 */
 	
 	public int getRank(){
 		return Rank;
 	}
 	
-	// ToStrings and Converters 
+	// ToStrings and Converters
+	
+	
+	/**
+	 * toString
+	 * @return String
+	 */
+	
+	@Override
 	
 	public String toString() {
 		return getRankString() + " of " + Suit;
 	}
+	
+	/**
+	 * getRankString
+	 * takes the int rank and converts it to the  string
+	 * @return String
+	 */
 	
 	public String getRankString(){
 		
 		return rankIntString(Rank);
 	}
 	
+	/**
+	 * getSuitInt
+	 * takes the suit string and makes it an int
+	 * @return int
+	 */
 	public int getSuitInt(){
 		switch(Suit){
 			case "Clubs":
@@ -78,8 +137,13 @@ public class Card implements Comparable<Card>{
 		}
 		return -1;
 	}
+	/**
+	 * takes in a parameter int suit and makes it a string
+	 * @param suit int
+	 * @return String
+	 */
 	
-	private String suitIntStr(int suit){
+	public String suitIntStr(int suit){
 		switch(suit){
 			case 0:
 				return "Clubs";
@@ -95,9 +159,15 @@ public class Card implements Comparable<Card>{
 				
 		}
 		
-		System.out.println("Invaild suit name");
+		System.out.println("Invaild suit number");
 		return null;
 	}
+	
+	/**
+	 * rankIntString takes in parameter rank and makes it a string
+	 * @param rank int
+	 * @return String
+	 */
 	
 	public String rankIntString(int rank){
 			switch(rank) {
@@ -144,6 +214,12 @@ public class Card implements Comparable<Card>{
 			}
 			return null;
 		}
+	
+	/**
+	 * rankStrInt takes in rank as a s and returns an int
+	 * @param s
+	 * @return int
+	 */
 	
 	public int rankStrInt(String s) {
 		switch(s){
@@ -192,6 +268,14 @@ public class Card implements Comparable<Card>{
 		return -1;
 	}
 	
+	
+	/**
+	 * equals compares whether this and object of type Card are equal
+	 * @param other Object
+	 * @return boolean
+	 */
+	
+	@Override
 	public boolean equals(Object other){
 		if(other instanceof Card) {
 			if(this.getRank() == ((Card) other).getRank() && this.getSuit() == ((Card) other).getSuit())
@@ -200,6 +284,13 @@ public class Card implements Comparable<Card>{
 		return false;
 	}
 	
+	/**
+	 * compareTo compares this and a Card to see which is greater
+	 * @param other Card
+	 * @return int
+	 */
+	
+	@Override
 	public int compareTo(Card other){
 
 			if(this.Rank > other.getRank())
